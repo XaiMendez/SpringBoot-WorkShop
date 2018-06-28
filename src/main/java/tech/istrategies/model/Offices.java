@@ -13,7 +13,7 @@ public class Offices {
 	
 	@Id
 	@Column(name="officeCode")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private String officeCode;
 	
 	@Column(name="city")
@@ -39,6 +39,10 @@ public class Offices {
 	
 	@Column(name="territory")
 	private String territory;
+
+	public Offices() {
+		super();
+	}
 
 	public String getOfficeCode() {
 		return officeCode;

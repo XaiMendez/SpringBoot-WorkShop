@@ -15,7 +15,7 @@ public class Orders {
 	
 	@Id
 	@Column(name="orderNumber")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderNumber;
 	
 	@Column(name="orderDate")
@@ -33,8 +33,13 @@ public class Orders {
 	@Column(name="comments")
 	private String comments;
 	
+	// fk
 	@Column(name="customerNumber")
 	private int customerNumber;
+	
+	public Orders() {
+		super();
+	}
 
 	public int getOrderNumber() {
 		return orderNumber;

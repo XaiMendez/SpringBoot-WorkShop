@@ -16,9 +16,10 @@ public class Payments {
 
 	@Id
 	@Column(name="customerNumber")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerNumber;
 	
+	@Id
 	@Column(name="checkNumber")
 	private String checkNumber;
 	
@@ -27,6 +28,10 @@ public class Payments {
 	
 	@Column(name="amount")
 	private double amount;
+
+	public Payments() {
+		super();
+	}
 
 	public int getCustomerNumber() {
 		return customerNumber;

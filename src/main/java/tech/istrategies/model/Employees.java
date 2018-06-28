@@ -13,7 +13,7 @@ public class Employees {
 	
 	@Id
 	@Column(name="employeeNumber")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int employeeNumber;
 	
 	@Column(name="lastName")
@@ -28,14 +28,20 @@ public class Employees {
 	@Column(name="email")
 	private String email;
 	
+	// fk
 	@Column(name="officeCode")
 	private String officeCode;
 	
+	// fk
 	@Column(name="reportsTo")
 	private int reportsTo;
 	
 	@Column(name="jobTitle")
 	private String jobTitle;
+
+	public Employees() {
+		super();
+	}
 
 	public int getEmployeeNumber() {
 		return employeeNumber;

@@ -11,11 +11,12 @@ import javax.persistence.Table;
 @Table(name = "orderdetails")
 public class OrderDetails {
 
-	@Id
+	//@Id
 	@Column(name = "orderNumber")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderNumber;
 
+	//@Id
 	@Column(name = "productCode")
 	private String productCode;
 
@@ -27,6 +28,10 @@ public class OrderDetails {
 
 	@Column(name = "orderLineNumber")
 	private int orderLineNumber;
+	
+	public OrderDetails() {
+		super();
+	}
 
 	public int getOrderNumber() {
 		return orderNumber;
