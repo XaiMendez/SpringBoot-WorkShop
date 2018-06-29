@@ -7,39 +7,45 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "payments")
 public class Payments {
-	
+
+	/*
+	 * @Id
+	 * 
+	 * @Column(name="customerNumber") //@GeneratedValue(strategy =
+	 * GenerationType.AUTO) private int customerNumber;
+	 */
 
 	@Id
-	@Column(name="customerNumber")
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	private int customerNumber;
-	
-	@Id
-	@Column(name="checkNumber")
+	@Column(name = "checkNumber")
 	private String checkNumber;
-	
-	@Column(name="paymentDate")
+
+	@ManyToOne
+	@JoinColumn(name = "customerNumber")
+	private Customers customer;
+
+	@Column(name = "paymentDate")
 	private Date paymentDate;
-	
-	@Column(name="amount")
+
+	@Column(name = "amount")
 	private double amount;
 
 	public Payments() {
 		super();
 	}
 
-	public int getCustomerNumber() {
-		return customerNumber;
-	}
-
-	public void setCustomerNumber(int customerNumber) {
-		this.customerNumber = customerNumber;
-	}
+	/*
+	 * public int getCustomerNumber() { return customerNumber; }
+	 * 
+	 * public void setCustomerNumber(int customerNumber) { this.customerNumber =
+	 * customerNumber; }
+	 */
 
 	public String getCheckNumber() {
 		return checkNumber;
@@ -47,6 +53,14 @@ public class Payments {
 
 	public void setCheckNumber(String checkNumber) {
 		this.checkNumber = checkNumber;
+	}
+
+	public Customers getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customers customer) {
+		this.customer = customer;
 	}
 
 	public Date getPaymentDate() {
@@ -64,7 +78,5 @@ public class Payments {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	
-	
 
 }

@@ -20,7 +20,7 @@ import tech.istrategies.model.Customers;
 import tech.istrategies.respository.*;
 
 @Controller
-@RequestMapping(path = "/customers")
+@RequestMapping(path = "/customer")
 public class CustomerController {
 
 	@Autowired

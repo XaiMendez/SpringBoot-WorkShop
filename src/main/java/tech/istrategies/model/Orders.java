@@ -7,36 +7,42 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "orders")
 public class Orders {
-	
+
 	@Id
-	@Column(name="orderNumber")
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "orderNumber")
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderNumber;
-	
-	@Column(name="orderDate")
+
+	@Column(name = "orderDate")
 	private Date orderDate;
-	
-	@Column(name="requiredDate")
+
+	@Column(name = "requiredDate")
 	private Date requiredDate;
-	
-	@Column(name="shippedDate")
+
+	@Column(name = "shippedDate")
 	private Date shippedDate;
-	
-	@Column(name="status")
+
+	@Column(name = "status")
 	private String status;
-	
-	@Column(name="comments")
+
+	@Column(name = "comments")
 	private String comments;
-	
+
 	// fk
-	@Column(name="customerNumber")
-	private int customerNumber;
-	
+	/*@Column(name = "customerNumber")
+	private int customerNumber;*/
+
+	@ManyToOne
+	@JoinColumn(name = "customerNumber")
+	private Customers customer;
+
 	public Orders() {
 		super();
 	}
@@ -89,13 +95,20 @@ public class Orders {
 		this.comments = comments;
 	}
 
-	public int getCustomerNumber() {
+	/*public int getCustomerNumber() {
 		return customerNumber;
 	}
 
 	public void setCustomerNumber(int customerNumber) {
 		this.customerNumber = customerNumber;
+	}*/
+
+	public Customers getCustomer() {
+		return customer;
 	}
 
-	
+	public void setCustomer(Customers customer) {
+		this.customer = customer;
+	}
+
 }

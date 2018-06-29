@@ -1,10 +1,15 @@
 package tech.istrategies.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,46 +17,49 @@ import javax.persistence.Table;
 public class Customers {
 
 	@Id
-	@Column(name="customerNumber")
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "customerNumber")
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerNumber;
 
-	@Column(name="customerName")
+	@Column(name = "customerName")
 	private String customerName;
 
-	@Column(name="contactLastName")
+	@Column(name = "contactLastName")
 	private String contactLastName;
 
-	@Column(name="contactFirstName")
+	@Column(name = "contactFirstName")
 	private String contactFirstName;
 
-	@Column(name="phone")
+	@Column(name = "phone")
 	private String phone;
 
-	@Column(name="addressLine1")
+	@Column(name = "addressLine1")
 	private String addressLine1;
 
-	@Column(name="addressLine2")
+	@Column(name = "addressLine2")
 	private String addressLine2;
 
-	@Column(name="city")
+	@Column(name = "city")
 	private String city;
 
-	@Column(name="state")
+	@Column(name = "state")
 	private String state;
 
-	@Column(name="postalCode")
+	@Column(name = "postalCode")
 	private String postalCode;
 
-	@Column(name="country")
+	@Column(name = "country")
 	private String country;
 
 	// fk
-	@Column(name="salesRepEmployeeNumber")
+	@Column(name = "salesRepEmployeeNumber")
 	private String salesRepEmployeeNumber;
 
-	@Column(name="creditLimit")
+	@Column(name = "creditLimit")
 	private double creditLimit;
+
+	/*@OneToMany(mappedBy = "customers", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Orders> orders = new ArrayList<>();*/
 
 	public Customers() {
 		super();
@@ -161,13 +169,12 @@ public class Customers {
 		this.creditLimit = creditLimit;
 	}
 
-	@Override
-	public String toString() {
-		return "Customers [customerNumber=" + customerNumber + ", customerName=" + customerName + ", contactLastName="
-				+ contactLastName + ", contactFirstName=" + contactFirstName + ", phone=" + phone + ", addressLine1="
-				+ addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city + ", state=" + state
-				+ ", postalCode=" + postalCode + ", country=" + country + ", salesRepEmployeeNumber="
-				+ salesRepEmployeeNumber + ", creditLimit=" + creditLimit + "]";
+	/*public List<Orders> getOrders() {
+		return orders;
 	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}*/
 
 }
