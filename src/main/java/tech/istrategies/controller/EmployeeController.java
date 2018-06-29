@@ -20,7 +20,7 @@ import tech.istrategies.respository.CustomerRepository;
 import tech.istrategies.respository.EmployeeRepository;
 
 @Controller
-@RequestMapping(path = "/employees")
+@RequestMapping(path = "/employee")
 public class EmployeeController {
 
 	@Autowired
