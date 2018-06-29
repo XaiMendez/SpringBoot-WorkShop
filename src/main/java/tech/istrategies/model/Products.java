@@ -3,39 +3,46 @@ package tech.istrategies.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "products")
 public class Products {
-	
+
 	@Id
-	@Column(name="productCode")
+	@Column(name = "productCode")
 	private String productCode;
-	
-	@Column(name="productName")
+
+	@Column(name = "productName")
 	private String productName;
-	
+
 	// fk
-	@Column(name="productLine")
-	private String productLine;
-	
-	@Column(name="productScale")
+	/*
+	 * @Column(name="productLine") private String productLine;
+	 */
+
+	@ManyToOne
+	@JoinColumn(name = "productLine")
+	private ProductLines productlines;
+
+	@Column(name = "productScale")
 	private String productScale;
-	
-	@Column(name="productVendor")
+
+	@Column(name = "productVendor")
 	private String productVendor;
-	
-	@Column(name="productDescription")
+
+	@Column(name = "productDescription")
 	private String productDescription;
-	
-	@Column(name="quantityInStock")
+
+	@Column(name = "quantityInStock")
 	private int quantityInStock;
-	
-	@Column(name="buyPrice")
+
+	@Column(name = "buyPrice")
 	private double buyPrice;
-	
-	@Column(name="MSRP")
+
+	@Column(name = "MSRP")
 	private double MSRP;
 
 	public Products() {
@@ -58,16 +65,23 @@ public class Products {
 		this.productName = productName;
 	}
 
-	public String getProductLine() {
-		return productLine;
-	}
-
-	public void setProductLine(String productLine) {
-		this.productLine = productLine;
-	}
+	/*
+	 * public String getProductLine() { return productLine; }
+	 * 
+	 * public void setProductLine(String productLine) { this.productLine =
+	 * productLine; }
+	 */
 
 	public String getProductScale() {
 		return productScale;
+	}
+
+	public ProductLines getProductlines() {
+		return productlines;
+	}
+
+	public void setProductlines(ProductLines productlines) {
+		this.productlines = productlines;
 	}
 
 	public void setProductScale(String productScale) {
@@ -112,6 +126,6 @@ public class Products {
 
 	public void setMSRP(double mSRP) {
 		MSRP = mSRP;
-	}	
+	}
 
 }
